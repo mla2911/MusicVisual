@@ -29,7 +29,7 @@ public class GUIMusicWindow {
     /**
      * the DLList of people to
      */
-    private DLList<Person> people; 
+    private DLList<Person> people;
     /**
      * the representation of how many readers heard a song
      */
@@ -86,7 +86,6 @@ public class GUIMusicWindow {
         window = new Window("                       "
             + "                                                Project 5");
         window.setSize(300, 600);
-   
 
         // buttons initialized with their labels
         Button prevButton = new Button("Previous");
@@ -118,46 +117,53 @@ public class GUIMusicWindow {
             window.addButton(bottomButtons[i], WindowSide.SOUTH);
         }
 
-        // Legend shapes that will not change. 
-        Shape legendBorder = new Shape(568, 280, 107, 180, Color.BLACK );
-       
-        Shape legendInside = new Shape(569, 281, 105, 178, Color.WHITE);
-        TextShape legendTitle = new TextShape(572, 283, "Hobby Legend");
-        legendTitle.setBackgroundColor(Color.WHITE);
+        // Legend shapes that will not change.
         
+        //black base shape to create a border
+        Shape legendBorder = new Shape(568, 280, 107, 180, Color.BLACK);
+        //white shape placed on top of black shape to create a border
+        Shape legendInside = new Shape(569, 281, 105, 178, Color.WHITE);
+        // text shape to give a title to the legend
+        TextShape legendTitle = new TextShape(572, 283, "Hobby Legend");
+        //make the background white
+        legendTitle.setBackgroundColor(Color.WHITE);
+        //the different aspects of the legend for hobbies, each corresponding 
+        // to a color: 
+        // Read = Magenta, Art = Blue, Sports = Orange, Music = Green
+        // all set with a white background
         TextShape legendRead = new TextShape(572, 303, "Read", Color.MAGENTA);
         legendRead.setBackgroundColor(Color.WHITE);
         TextShape legendArt = new TextShape(572, 323, "Art", Color.BLUE);
         legendArt.setBackgroundColor(Color.WHITE);
-        TextShape legendSports = new TextShape(572, 343, "Sports", Color.ORANGE);
+        TextShape legendSports = new TextShape(572, 343, "Sports",
+            Color.ORANGE);
         legendSports.setBackgroundColor(Color.WHITE);
-        TextShape legendMusic = new TextShape(572, 363, "Sports", Color.GREEN);
+        TextShape legendMusic = new TextShape(572, 363, "Music", Color.GREEN);
         legendMusic.setBackgroundColor(Color.WHITE);
-        window.addShape(legendMusic);
         TextShape legendSong = new TextShape(587, 383, "Song Title");
         legendSong.setBackgroundColor(Color.WHITE);
         TextShape legendHeard = new TextShape(572, 413, "Heard");
         legendHeard.setBackgroundColor(Color.WHITE);
-        bar = new Shape(587, 383, 5, 20, Color.BLACK);
         TextShape legendLikes = new TextShape(625, 413, "Likes");
         legendLikes.setBackgroundColor(Color.WHITE);
         Shape legendBar = new Shape(618, 408, 5, 40, Color.BLACK);
-        Shape[] legend = {legendLikes, legendBar, legendHeard, legendSong, 
-            legendMusic, legendSports, legendArt, legendRead, 
-            legendTitle, legendInside, legendBorder};
+        Shape[] legend = { legendLikes, legendBar, legendHeard, legendSong,
+            legendMusic, legendSports, legendArt, legendRead, legendTitle,
+            legendInside, legendBorder };
         for (int i = 0; i < legend.length; i++) {
             window.addShape(legend[i]);
         }
-        /*  all shapes are hard coded in for intermediate testing purposes.
-         *  when the back-end is connected we will link everything together.
-         */
-         
         /*
-         * ***************************************************/    
+         * all shapes are hard coded in for intermediate testing purposes.
+         * when the back-end is connected we will link everything together.
+         */
+
+        /*
+         * ***************************************************/
         // TextShapes to hold the song title and artist name
         songTitle = new TextShape(90, 30, "Let It Be");
         artistName = new TextShape(80, 50, "by The Beatles");
-       
+
         // the heard and liked indicators of readers
         magentaHeard = new Shape(50, 70, 100, 10, Color.MAGENTA);
         magentaLiked = new Shape(100, 70, 100, 10, Color.MAGENTA);
@@ -172,7 +178,7 @@ public class GUIMusicWindow {
         greenLiked = new Shape(65, 100, 100, 10, Color.GREEN);
         // indicator of where heard ended and liked begins
         bar = new Shape(120, 70, 5, 40, Color.BLACK);
-        
+
         // array of shapes to add all shapes to the window
         Shape[] glyph = { bar, magentaHeard, magentaLiked, blueHeard, blueLiked,
             orangeHeard, orangeLiked, greenHeard, greenLiked };
@@ -180,7 +186,7 @@ public class GUIMusicWindow {
         for (int i = 0; i < glyph.length; i++) {
             window.addShape(glyph[i]);
         }
-       
+
         // set the background of the text shapes to white
         songTitle.setBackgroundColor(Color.WHITE);
         artistName.setBackgroundColor(Color.WHITE);
@@ -188,7 +194,8 @@ public class GUIMusicWindow {
         window.addShape(songTitle);
         window.addShape(artistName);
         /*
-         * ********************************************** */
+         * **********************************************
+         */
         quitButton.onClick(this, "clickedQuitButton");
         prevButton.onClick(this, "clickedPrevButton");
         artistButton.onClick(this, "clickedArtistButton");
@@ -199,7 +206,7 @@ public class GUIMusicWindow {
         hobbyButton.onClick(this, "clickedHobbyButton");
         majorButton.onClick(this, "clickedMajorButton");
         regionButton.onClick(this, "clickedRegionButton");
-        
+
     }
 
 
@@ -415,7 +422,7 @@ public class GUIMusicWindow {
      *            quit button
      */
     public void clickedQuitButton(Button quit) {
-        
+
         System.exit(0);
 
     }
