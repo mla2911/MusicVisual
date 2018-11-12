@@ -83,7 +83,10 @@ public class GUIMusicWindow {
      */
     public GUIMusicWindow() {
         // creates a new window with title "Project 5"
-        window = new Window("Project 5");
+        window = new Window("                       "
+            + "                                                Project 5");
+        window.setSize(300, 600);
+   
 
         // buttons initialized with their labels
         Button prevButton = new Button("Previous");
@@ -115,6 +118,36 @@ public class GUIMusicWindow {
             window.addButton(bottomButtons[i], WindowSide.SOUTH);
         }
 
+        // Legend shapes that will not change. 
+        Shape legendBorder = new Shape(568, 280, 107, 180, Color.BLACK );
+       
+        Shape legendInside = new Shape(569, 281, 105, 178, Color.WHITE);
+        TextShape legendTitle = new TextShape(572, 283, "Hobby Legend");
+        legendTitle.setBackgroundColor(Color.WHITE);
+        
+        TextShape legendRead = new TextShape(572, 303, "Read", Color.MAGENTA);
+        legendRead.setBackgroundColor(Color.WHITE);
+        TextShape legendArt = new TextShape(572, 323, "Art", Color.BLUE);
+        legendArt.setBackgroundColor(Color.WHITE);
+        TextShape legendSports = new TextShape(572, 343, "Sports", Color.ORANGE);
+        legendSports.setBackgroundColor(Color.WHITE);
+        TextShape legendMusic = new TextShape(572, 363, "Sports", Color.GREEN);
+        legendMusic.setBackgroundColor(Color.WHITE);
+        window.addShape(legendMusic);
+        TextShape legendSong = new TextShape(587, 383, "Song Title");
+        legendSong.setBackgroundColor(Color.WHITE);
+        TextShape legendHeard = new TextShape(572, 413, "Heard");
+        legendHeard.setBackgroundColor(Color.WHITE);
+        bar = new Shape(587, 383, 5, 20, Color.BLACK);
+        TextShape legendLikes = new TextShape(625, 413, "Likes");
+        legendLikes.setBackgroundColor(Color.WHITE);
+        Shape legendBar = new Shape(618, 408, 5, 40, Color.BLACK);
+        Shape[] legend = {legendLikes, legendBar, legendHeard, legendSong, 
+            legendMusic, legendSports, legendArt, legendRead, 
+            legendTitle, legendInside, legendBorder};
+        for (int i = 0; i < legend.length; i++) {
+            window.addShape(legend[i]);
+        }
         /*  all shapes are hard coded in for intermediate testing purposes.
          *  when the back-end is connected we will link everything together.
          */
@@ -122,23 +155,24 @@ public class GUIMusicWindow {
         /*
          * ***************************************************/    
         // TextShapes to hold the song title and artist name
-        songTitle = new TextShape(90, 110, "Let It Be");
-        artistName = new TextShape(80, 130, "by The Beatles");
-
+        songTitle = new TextShape(90, 30, "Let It Be");
+        artistName = new TextShape(80, 50, "by The Beatles");
+       
         // the heard and liked indicators of readers
-        magentaHeard = new Shape(50, 150, 100, 10, Color.MAGENTA);
-        magentaLiked = new Shape(100, 150, 100, 10, Color.MAGENTA);
+        magentaHeard = new Shape(50, 70, 100, 10, Color.MAGENTA);
+        magentaLiked = new Shape(100, 70, 100, 10, Color.MAGENTA);
         // the heard and liked indicators of artists
-        blueHeard = new Shape(70, 160, 100, 10, Color.BLUE);
-        blueLiked = new Shape(100, 160, 100, 10, Color.BLUE);
+        blueHeard = new Shape(70, 80, 100, 10, Color.BLUE);
+        blueLiked = new Shape(100, 80, 100, 10, Color.BLUE);
         // the heard and liked indicators of athletes
-        orangeHeard = new Shape(85, 170, 100, 10, Color.ORANGE);
-        orangeLiked = new Shape(85, 170, 100, 10, Color.ORANGE);
+        orangeHeard = new Shape(85, 90, 100, 10, Color.ORANGE);
+        orangeLiked = new Shape(85, 90, 100, 10, Color.ORANGE);
         // the heard and liked indicators of musicians
-        greenHeard = new Shape(65, 180, 100, 10, Color.GREEN);
-        greenLiked = new Shape(65, 180, 100, 10, Color.GREEN);
+        greenHeard = new Shape(65, 100, 100, 10, Color.GREEN);
+        greenLiked = new Shape(65, 100, 100, 10, Color.GREEN);
         // indicator of where heard ended and liked begins
-        bar = new Shape(120, 150, 5, 40, Color.BLACK);
+        bar = new Shape(120, 70, 5, 40, Color.BLACK);
+        
         // array of shapes to add all shapes to the window
         Shape[] glyph = { bar, magentaHeard, magentaLiked, blueHeard, blueLiked,
             orangeHeard, orangeLiked, greenHeard, greenLiked };
@@ -146,15 +180,15 @@ public class GUIMusicWindow {
         for (int i = 0; i < glyph.length; i++) {
             window.addShape(glyph[i]);
         }
-        /*
-         * ********************************************** */
+       
         // set the background of the text shapes to white
         songTitle.setBackgroundColor(Color.WHITE);
         artistName.setBackgroundColor(Color.WHITE);
         // add them to the window
         window.addShape(songTitle);
         window.addShape(artistName);
-        
+        /*
+         * ********************************************** */
         quitButton.onClick(this, "clickedQuitButton");
         prevButton.onClick(this, "clickedPrevButton");
         artistButton.onClick(this, "clickedArtistButton");
